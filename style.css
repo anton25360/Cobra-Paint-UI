@@ -27,8 +27,14 @@ form{
 
 .navbar{
     border: 2px solid red;
+    height: 100vh;
+    float: left;
+    width: 5vw;
 }
 
 .canvas{
-    border: 2px solid red;
+    border: 2px solid blue;
+    height: 100vh;
+    float: right;
+    width: 95vw;
 }
