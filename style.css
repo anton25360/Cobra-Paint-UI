@@ -24,3 +24,11 @@ form{
     margin: 50px;
     text-align: center;
 }
+
+.navbar{
+    border: 2px solid red;
+}
+
+.canvas{
+    border: 2px solid red;
+}
