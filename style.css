@@ -16,5 +16,11 @@ form{
     padding: 10px;
     border-radius: 5px;
     border: 2px solid black;
-    font-size: 2rem;
+    font-size: 3rem;
+    text-align: left;
+}
+
+.formContainer{
+    margin: 50px;
+    text-align: center;
 }
