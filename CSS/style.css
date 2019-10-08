@@ -15,51 +15,36 @@ body {
     background-color: #bfbfbf;
 }
 
-.formContainer {
-    margin: 50px;
-    text-align: center;
-}
-
-form {
-    display: inline-block;
-    padding: 10px;
-    border-radius: 5px;
-    border: 2px solid black;
-    font-size: 3rem;
-    text-align: left;
-}
-
-.canvas:hover {
-    cursor: crosshair;
-}
-
 .screen {
-    /*display: flex;*/
-    overflow: auto;
+    display: flex;
 }
 
 .navbar {
     border-right: 2px solid black;
     height: 100vh;
-    float: left;
     width: 80px;
     background-color:#fff;
+}
 
+.canvasContainer {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .canvas {
-    height: 70vh;
-    width: 70vw;
-    margin: auto auto;
+    height: 80vh;
+    max-width: 80vw;
 }
 
 .row {
-    overflow: auto;
+    display: flex;
+    flex-wrap: wrap;
 }
 
 .pixel {
     background-color: black;
     height: 2px;
     width: 2px;
-    float: left;
 }
