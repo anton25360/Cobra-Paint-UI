@@ -2,8 +2,6 @@
 generateCanvas(60, 100)
 
 
-
-
 function generateCanvas(row, column) {
 
     let canvasRow = '<div class="pixel"></div>'.repeat(column)

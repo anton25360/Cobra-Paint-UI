@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="style.css" type="text/css">
     <meta charset="UTF-8">
     <script defer src="script.js"></script>
+    <script defer src="cookie.js"></script>
     <title>JS-Paint</title>
 </head>
 <body>
@@ -13,13 +14,13 @@
     <div class="formContainer">
 
         <h1>Select a size</h1>
-        <form action="canvas.html" method="get">
+        <form method="get" id="formSize" action="canvas.html">
 
             <p><input type="radio" name="size" value="small"> Small</p>
             <p><input type="radio" name="size" value="medium"> Medium</p>
             <p><input type="radio" name="size" value="big" checked> Big</p>
 
-            <input id="submitCSize" type="submit" value="select">
+            <input id="submitCSize" type="submit" value="select" onsubmit="">
         </form>
     </div>
 
