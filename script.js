@@ -32,7 +32,7 @@ function calculateCanvasDimensions(selectedCanvasSize) {
 
     }
 
-    return {width: viewportWidth, height: viewportHeight}
+    return { width: viewportWidth, height: viewportHeight }
 
 }
 
@@ -49,38 +49,37 @@ function generateCanvas(width, height) {
 
 }
 
-let painting
-let clickdown
+let painting, clickdown
 
-document.querySelector('html').addEventListener('mousedown', function () {
+document.querySelector('html').addEventListener('mousedown', function() {
     clickdown = true
 })
 
-document.querySelector('html').addEventListener('mouseup', function () {
+document.querySelector('html').addEventListener('mouseup', function() {
     clickdown = false
 })
 
-document.querySelector('.canvas').addEventListener('mouseleave', function () {
+document.querySelector('.canvas').addEventListener('mouseleave', function() {
     painting = false
 })
 
-document.querySelector('.canvas').addEventListener('mouseenter', function () {
+document.querySelector('.canvas').addEventListener('mouseenter', function() {
     if (clickdown === true) {
         painting = true
     }
 })
 
 document.querySelectorAll('.pixel').forEach(pixel => {
-    pixel.addEventListener('mousedown', function() {
+    pixel.addEventListener('mousedown', function () {
         painting = true
         this.style.backgroundColor = "black"
     })
-    pixel.addEventListener('mousemove', function() {
+    pixel.addEventListener('mousemove', function () {
         if (painting === true && clickdown === true) {
             this.style.backgroundColor = "black"
         }
     })
-    pixel.addEventListener('mouseup', function() {
+    pixel.addEventListener('mouseup', function () {
         painting = false
     })
 })
