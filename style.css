@@ -63,35 +63,44 @@ button {
     display: inline-block;
 }
 
-.tooltip .tooltiptext {
+.tooltiptext {
     visibility: hidden;
     position: absolute;
-    /*width: 120px;*/
-    /*background-color: #555;*/
-    /*color: #fff;*/
-    /*text-align: center;*/
-    /*padding: 5px 0px;*/
-    /*border-radius: 6px;*/
-    /*position: absolute;*/
-    /*z-index: 1000;*/
-    /*bottom: 125%;*/
-    /*left: 50%;*/
-    /*margin-left: -60%;*/
-    /*opacity: 0;*/
-    /*transition: opacity 0.3s;*/
+    background-color: #555;
+    color: #fff;
+    padding: 5px 2px;
+    border-radius: 3px;
+    font-size: 2rem;
+    opacity: 0;
+    transition: opacity 0.5s;
+    z-index: 1;
 }
 
-/*.tooltipContainer .tooltipDrawer::after{*/
-/*    content: 'Pick your color';*/
-/*    position: absolute;*/
-/*    top: 100%;*/
-/*    left: 50%;*/
-/*    margin-left: -5px;*/
-/*    border-width: 5px;*/
-/*    border-style: solid;*/
-/*    border-color: #555 transparent transparent transparent;*/
-/*}*/
 .tooltip:hover .tooltiptext {
     visibility: visible;
-    /*opacity: 1;*/
+    opacity: 1;
+}
+
+.tooltip2 {
+    position: relative;
+    display: inline-block;
+}
+
+.tooltiptext2 {
+    visibility: hidden;
+    position: absolute;
+    background-color: #555;
+    color: #fff;
+    padding: 5px 2px;
+    border-radius: 3px;
+    font-size: 2rem;
+    opacity: 0;
+    transition: opacity 0.5s;
+    z-index: 1;
+}
+
+
+.tooltip2:hover .tooltiptext2 {
+    visibility: visible;
+    opacity: 1;
 }
