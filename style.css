@@ -74,3 +74,14 @@ form{
     margin: auto auto;
     border: 2px solid black;
 }
+=======
+.row {
+    overflow: auto;
+}
+
+.pixel {
+    background-color: black;
+    height: 2px;
+    width: 2px;
+    float: left;
+}
