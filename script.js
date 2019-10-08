@@ -1,6 +1,12 @@
+document.querySelector('#formSize').addEventListener('submit', function (e) {
+    e.preventDefault()
+    var value = document.querySelector('input[name="size"]:checked').value;
+    console.log(value);
+    document.cookie = "size="+value;
+    window.location.href = 'canvas.html'
+})
 
 generateCanvas(60, 100)
-
 
 function generateCanvas(row, column) {
 
