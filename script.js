@@ -1,12 +1,14 @@
 
 generateCanvas(60, 100)
 
-
-
 let clickdown
 let painting
 let paintColor = '#000000' // default paint color
 let canvasColor = '#ffffff' // default canvas background color
+
+document.querySelectorAll('.row .pixel').forEach(function(pixel) {
+    pixel.style.backgroundColor = canvasColor
+})
 
 function generateCanvas(row, column) {
 
