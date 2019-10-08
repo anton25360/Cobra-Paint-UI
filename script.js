@@ -1,30 +1,40 @@
 
 generateCanvas(60, 100)
 
-let clickdown
-let painting
-let paintColor = '#000000' // default paint color
 let canvasColor = '#ffffff' // default canvas background color
+let paintColor = '#000000' // default paint color
 
-document.querySelectorAll('.row .pixel').forEach(function(pixel) {
-    pixel.style.backgroundColor = canvasColor
+setCanvasColor(canvasColor)
+
+
+document.querySelector('nav .eraser').addEventListener('click', function () {
+    paintColor = canvasColor
 })
-
-document.querySelector('.canvas').style.backgroundColor = canvasColor
 
 
 function generateCanvas(row, column) {
 
-    let canvasRow = '<div class="pixel"></div>'.repeat(column) // canvasRow has a value of (120 * '<div class="pixel"></div>' all in a row)
+    let canvasRow = '<div class="pixel"></div>'.repeat(column)
 
-    canvasRow = '<div class="row">' + canvasRow + '</div>' // canvasRow's value is updated to (120 * '<div class="pixel"></div>' all in a row BUT with '<div class="row">' and '</div>' wrapped around it to make a row div with 120 pixel divs)
+    canvasRow = '<div class="row">' + canvasRow + '</div>'
 
-    let canvas =  canvasRow.repeat(row) // canvas (new variable) has a value of the row with 120 pixel divs BUT this itself is repeated 60 times)
+    let canvas =  canvasRow.repeat(row)
 
     document.querySelector('.canvas').innerHTML = canvas
 
 }
 
+function setCanvasColor(color) {
+    document.querySelectorAll('.row .pixel').forEach(function (pixel) {
+        pixel.style.backgroundColor = color
+    })
+    document.querySelector('.canvas').style.backgroundColor = color
+}
+
+
+let clickdown
+
+let painting
 
 document.querySelector('html').addEventListener('mousedown', function () {
     clickdown = true
@@ -44,25 +54,24 @@ document.querySelector('.canvas').addEventListener('mouseenter', function () {
     }
 })
 
-document.querySelectorAll('.pixel').forEach(pixel => {
-    pixel.addEventListener('mousedown', function() {
-        painting = true
-        this.style.backgroundColor = paintColor
-    })
-    pixel.addEventListener('mousemove', function() {
-        if (painting === true && clickdown === true) {
+document.querySelectorAll('.row .pixel').forEach(pixel => {
+    setTimeout(function () {
+        pixel.addEventListener('mousedown', function () {
+            painting = true
             this.style.backgroundColor = paintColor
-        }
+        })
+        pixel.addEventListener('mousemove', function () {
+            if (painting === true && clickdown === true) {
+                this.style.backgroundColor = paintColor
+            }
+        })
+        pixel.addEventListener('mouseup', function () {
+            painting = false
+        })
     })
-    pixel.addEventListener('mouseup', function() {
-        painting = false
-    })
-})
+}, 0)
 
 
-document.querySelector('nav .eraser').addEventListener('click',function() {
-    paintColor = canvasColor
-})
 
 
 
