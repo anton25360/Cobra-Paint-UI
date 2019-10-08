@@ -24,6 +24,16 @@ document.querySelector('html').addEventListener('mouseup', function () {
     clickdown = false
 })
 
+document.querySelector('.canvas').addEventListener('mouseleave', function () {
+    painting = false
+})
+
+document.querySelector('.canvas').addEventListener('mouseenter', function () {
+    if (clickdown === true) {
+        painting = true
+    }
+})
+
 document.querySelectorAll('.pixel').forEach(pixel => {
     pixel.addEventListener('mousedown', function() {
         painting = true
@@ -39,13 +49,4 @@ document.querySelectorAll('.pixel').forEach(pixel => {
     })
 })
 
-document.querySelector('.canvas').addEventListener('mouseleave', function () {
-    painting = false
-})
-
-document.querySelector('.canvas').addEventListener('mouseenter', function () {
-    if (clickdown === true) {
-        painting = true
-    }
-})
 
