@@ -5,7 +5,6 @@
 
 html {
     font-size: 62.5%;
-    cursor: crosshair;
 }
 
 h1 {
@@ -38,6 +37,11 @@ form{
     margin: 0 auto;
     float: right;
     border: 2px solid black;
+}
+
+.canvas:hover{
+    cursor: crosshair;
+
 }
 
 .screen {
