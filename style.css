@@ -62,20 +62,25 @@ form{
     margin: 10px 0;
 }
 
+.canvasContainer {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .canvas {
-    height: 70vh;
-    width: 70vw;
-    margin: auto auto;
-    /*border: 2px solid black;*/
+    height: 80vh;
+    max-width: 80vw;
 }
 
 .row {
-    overflow: auto;
+    display: flex;
+    flex-wrap: wrap;
 }
 
 .pixel {
     background-color: black;
     height: 2px;
     width: 2px;
-    float: left;
 }
