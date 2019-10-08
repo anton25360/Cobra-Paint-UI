@@ -12,12 +12,13 @@
 
 
     <div class="formContainer">
-        <h1>Please select your canvas size:</h1>
-        <form action="canvas.html">
-    
-            <input type="radio" name="size" value="small"> Small<br>
-            <input type="radio" name="size" value="medium"> Medium<br>
-            <input type="radio" name="size" value="big" checked> Big<br>
+
+        <h1>Select a size</h1>
+        <form action="canvas.html" method="get">
+
+            <p><input type="radio" name="size" value="small"> Small</p>
+            <p><input type="radio" name="size" value="medium"> Medium</p>
+            <p><input type="radio" name="size" value="big" checked> Big</p>
 
             <input id="submitCSize" type="submit" value="select">
         </form>
