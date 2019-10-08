@@ -6,15 +6,50 @@ document.querySelector('#formSize').addEventListener('submit', function (e) {
     window.location.href = 'canvas.html'
 })
 
-generateCanvas(60, 100)
+let canvasDimensions = calculateCanvasDimensions('large')
 
-function generateCanvas(row, column) {
+generateCanvas(canvasDimensions.width, canvasDimensions.height)
 
-    let canvasRow = '<div class="pixel"></div>'.repeat(column)
+function calculateCanvasDimensions(selectedCanvasSize) {
 
-    canvasRow = '<div class="row">' + canvasRow + '</div>'
+    // https://stackoverflow.com/questions/1248081/get-the-browser-viewport-dimensions-with-javascript <- see resource
 
-    let canvas = canvasRow.repeat(row)
+    let viewportWidth = Math.max(document.documentElement.clientWidth, window.innerWidth || 0)
+
+    let viewportHeight = Math.max(document.documentElement.clientHeight, window.innerHeight || 0)
+
+    if (selectedCanvasSize === 'small') {
+
+        viewportWidth = Math.floor(viewportWidth * 0.2)
+
+        viewportHeight = Math.floor(viewportHeight * 0.2)
+
+    } else if (selectedCanvasSize === 'large') {
+
+        viewportWidth = Math.floor(viewportWidth * 0.4)
+
+        viewportHeight = Math.floor(viewportHeight * 0.4)
+
+    } else {
+
+        viewportWidth = Math.floor(viewportWidth * 0.3)
+
+        viewportHeight = Math.floor(viewportHeight * 0.3)
+
+    }
+
+    return {width: viewportWidth, height: viewportHeight}
+
+}
+
+
+function generateCanvas(width, height) {
+
+    let canvasWidth = '<div class="pixel"></div>'.repeat(width)
+
+    canvasWidth = '<div class="row">' + canvasWidth + '</div>'
+
+    let canvas = canvasWidth.repeat(height)
 
     document.querySelector('.canvas').innerHTML = canvas
 
