@@ -1,5 +1,5 @@
 
-generateCanvas(250, 400)
+generateCanvas(60, 100)
 
 
 
@@ -15,3 +15,17 @@ function generateCanvas(row, column) {
     document.querySelector('.canvas').innerHTML = canvas
 
 }
+
+document.querySelectorAll('.pixel').forEach(pixel => {
+    pixel.addEventListener('mousedown', function() {
+        painting = true
+    })
+    pixel.addEventListener('mousemove', function() {
+        if (painting === true) {
+            this.style.background = "black";
+        }
+    })
+    pixel.addEventListener('mouseup', function() {
+        painting = false;
+    })
+})
