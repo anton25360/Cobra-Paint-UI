@@ -7,3 +7,22 @@ html {
     font-size: 62.5%;
 }
 
+.row {
+    overflow: auto;
+}
+
+.pixel {
+    background-color: white;
+    height: 10px;
+    width: 10px;
+    float: left;
+    border-radius: 50%;
+}
+
+.canvas {
+    display: inline-block;
+    cursor: crosshair;
+    background-color: white;
+    border: 1px solid red;
+}
+
