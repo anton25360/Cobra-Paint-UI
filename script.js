@@ -1,5 +1,5 @@
 
-generateCanvas(250, 400)
+generateCanvas(280, 500)
 
 
 

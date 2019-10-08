@@ -31,13 +31,7 @@ form{
 }
 
 
-.canvas {
-    height: 200px;
-    width: 70%;
-    margin: 0 auto;
-    float: right;
-    border: 2px solid black;
-}
+
 
 .canvas:hover{
     cursor: crosshair;
@@ -72,9 +66,9 @@ form{
     height: 70vh;
     width: 70vw;
     margin: auto auto;
-    border: 2px solid black;
+    /*border: 2px solid black;*/
 }
-=======
+
 .row {
     overflow: auto;
 }
