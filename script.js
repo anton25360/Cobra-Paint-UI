@@ -19,10 +19,11 @@ function generateCanvas(row, column) {
 document.querySelectorAll('.pixel').forEach(pixel => {
     pixel.addEventListener('mousedown', function() {
         painting = true
+        this.style.backgroundColor = "black"
     })
     pixel.addEventListener('mousemove', function() {
         if (painting === true) {
-            this.style.background = "black";
+            this.style.backgroundColor = "black"
         }
     })
     pixel.addEventListener('mouseup', function() {
