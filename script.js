@@ -1,6 +1,7 @@
 
 generateCanvas(60, 100)
-
+let clickdown
+let painting
 
 
 function generateCanvas(row, column) {
@@ -15,8 +16,6 @@ function generateCanvas(row, column) {
 
 }
 
-let clickdown
-let painting
 
 document.querySelector('html').addEventListener('mousedown', function () {
     clickdown = true
@@ -52,7 +51,7 @@ document.querySelectorAll('.pixel').forEach(pixel => {
 })
 
 
-
+document.querySelector('.eraser')
 
 
 
