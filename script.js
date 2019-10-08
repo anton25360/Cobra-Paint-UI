@@ -51,7 +51,7 @@ document.querySelectorAll('.pixel').forEach(pixel => {
 })
 
 
-document.querySelector('.eraser')
+document.querySelector('nav .eraser')
 
 
 
