@@ -1,13 +1,13 @@
 let drawer = document.querySelector('#drawer')
-let erasor = document.querySelector('#erasor')
+let eraser = document.querySelector('#eraser')
 
 drawer.addEventListener('click', function () {
     drawer.style.backgroundColor = '#a9a9a9'
-    erasor.style.backgroundColor = '#ffffff'
+    eraser.style.backgroundColor = '#ffffff'
 })
 
-erasor.addEventListener('click', function () {
-    erasor.style.backgroundColor = '#a9a9a9'
+eraser.addEventListener('click', function () {
+    eraser.style.backgroundColor = '#a9a9a9'
     drawer.style.backgroundColor = '#ffffff'
 })
 
