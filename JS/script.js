@@ -45,11 +45,11 @@ document.querySelector('.canvas').addEventListener('mouseenter', function() {
 document.querySelectorAll('.pixel').forEach(function(pixel) {
     pixel.addEventListener('mousedown', function() {
         painting = true
-        this.style.backgroundColor = "#000"
+        this.style.backgroundColor = "#000000"
     })
     pixel.addEventListener('mousemove', function() {
         if (painting === true && clickdown === true) {
-            this.style.backgroundColor = "#000"
+            this.style.backgroundColor = "#000000"
         }
     })
     pixel.addEventListener('mouseup', function() {
