@@ -13,8 +13,7 @@ function generateCanvas(row, column) {
 
 }
 
-let painting
-let clickdown
+let painting, clickdown
 
 /* 
 * The two global events below are designed to ensure that users can 
@@ -25,19 +24,19 @@ let clickdown
 * click again. 
 */
 
-document.querySelector('html').addEventListener('mousedown', function () {
+document.querySelector('html').addEventListener('mousedown', function() {
     clickdown = true
 })
 
-document.querySelector('html').addEventListener('mouseup', function () {
+document.querySelector('html').addEventListener('mouseup', function() {
     clickdown = false
 })
 
-document.querySelector('.canvas').addEventListener('mouseleave', function () {
+document.querySelector('.canvas').addEventListener('mouseleave', function() {
     painting = false
 })
 
-document.querySelector('.canvas').addEventListener('mouseenter', function () {
+document.querySelector('.canvas').addEventListener('mouseenter', function() {
     if (clickdown) {
         painting = true
     }
@@ -46,11 +45,11 @@ document.querySelector('.canvas').addEventListener('mouseenter', function () {
 document.querySelectorAll('.pixel').forEach(function(pixel) {
     pixel.addEventListener('mousedown', function() {
         painting = true
-        this.style.backgroundColor = "#000000	"
+        this.style.backgroundColor = "#000"
     })
     pixel.addEventListener('mousemove', function() {
         if (painting === true && clickdown === true) {
-            this.style.backgroundColor = "#000000	"
+            this.style.backgroundColor = "#000"
         }
     })
     pixel.addEventListener('mouseup', function() {
