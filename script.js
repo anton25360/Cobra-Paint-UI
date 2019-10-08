@@ -1,21 +1,22 @@
 
-generateCanvas(280, 500)
-
-
+generateCanvas(60, 100)
 
 
 
 function generateCanvas(row, column) {
 
-    let canvasRow = '<div class="pixel"></div>'.repeat(column)
+    let canvasRow = '<div class="pixel"></div>'.repeat(column) // canvasRow has a value of (120 * '<div class="pixel"></div>' all in a row)
 
-    canvasRow = '<div class="row">' + canvasRow + '</div>'
+    canvasRow = '<div class="row">' + canvasRow + '</div>' // canvasRow's value is updated to (120 * '<div class="pixel"></div>' all in a row BUT with '<div class="row">' and '</div>' wrapped around it to make a row div with 120 pixel divs)
 
-    let canvas = canvasRow.repeat(row)
+    let canvas =  canvasRow.repeat(row) // canvas (new variable) has a value of the row with 120 pixel divs BUT this itself is repeated 60 times)
 
     document.querySelector('.canvas').innerHTML = canvas
 
 }
+
+let clickdown
+let painting
 
 document.querySelector('html').addEventListener('mousedown', function () {
     clickdown = true
@@ -49,5 +50,11 @@ document.querySelectorAll('.pixel').forEach(pixel => {
         painting = false
     })
 })
+
+
+
+
+
+
 
 
