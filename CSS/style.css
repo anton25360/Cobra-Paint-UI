@@ -12,16 +12,15 @@ h1 {
 }
 
 body {
-background-color: #bfbfbf;
+    background-color: #bfbfbf;
 }
 
-
-.formContainer{
+.formContainer {
     margin: 50px;
     text-align: center;
 }
 
-form{
+form {
     display: inline-block;
     padding: 10px;
     border-radius: 5px;
@@ -30,12 +29,8 @@ form{
     text-align: left;
 }
 
-
-
-
 .canvas:hover{
     cursor: crosshair;
-
 }
 
 .screen {
@@ -55,7 +50,6 @@ form{
     text-align: center;
 }
 
-
 .icons img {
     width: 80%;
     height: auto;
@@ -66,7 +60,6 @@ form{
     height: 70vh;
     width: 70vw;
     margin: auto auto;
-    /*border: 2px solid black;*/
 }
 
 .row {
