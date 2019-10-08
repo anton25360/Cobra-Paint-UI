@@ -1,8 +1,12 @@
 
 generateCanvas(60, 100)
+
+
+
 let clickdown
 let painting
-
+let paintColor = '#000000' // default paint color
+let canvasColor = '#ffffff' // default canvas background color
 
 function generateCanvas(row, column) {
 
@@ -38,11 +42,11 @@ document.querySelector('.canvas').addEventListener('mouseenter', function () {
 document.querySelectorAll('.pixel').forEach(pixel => {
     pixel.addEventListener('mousedown', function() {
         painting = true
-        this.style.backgroundColor = "black"
+        this.style.backgroundColor = paintColor
     })
     pixel.addEventListener('mousemove', function() {
         if (painting === true && clickdown === true) {
-            this.style.backgroundColor = "black"
+            this.style.backgroundColor = paintColor
         }
     })
     pixel.addEventListener('mouseup', function() {
@@ -52,8 +56,10 @@ document.querySelectorAll('.pixel').forEach(pixel => {
 
 
 document.querySelector('nav .eraser').addEventListener('click',function() {
-    
+    paintColor = canvasColor
 })
+
+
 
 
 
