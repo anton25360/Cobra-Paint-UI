@@ -10,6 +10,9 @@ document.querySelectorAll('.row .pixel').forEach(function(pixel) {
     pixel.style.backgroundColor = canvasColor
 })
 
+document.querySelector('.canvas').style.backgroundColor = canvasColor
+
+
 function generateCanvas(row, column) {
 
     let canvasRow = '<div class="pixel"></div>'.repeat(column) // canvasRow has a value of (120 * '<div class="pixel"></div>' all in a row)
