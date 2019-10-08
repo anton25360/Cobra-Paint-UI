@@ -51,7 +51,9 @@ document.querySelectorAll('.pixel').forEach(pixel => {
 })
 
 
-document.querySelector('nav .eraser')
+document.querySelector('nav .eraser').addEventListener('click',function() {
+    
+})
 
 
 
