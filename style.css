@@ -7,6 +7,74 @@ html {
     font-size: 62.5%;
 }
 
+h1 {
+    font-size: 2.5rem;
+}
+
+body {
+background-color: #bfbfbf;
+}
+
+
+.formContainer{
+    margin: 50px;
+    text-align: center;
+}
+
+form{
+    display: inline-block;
+    padding: 10px;
+    border-radius: 5px;
+    border: 2px solid black;
+    font-size: 3rem;
+    text-align: left;
+}
+
+
+.canvas {
+    height: 200px;
+    width: 70%;
+    margin: 0 auto;
+    float: right;
+    border: 2px solid black;
+}
+
+.canvas:hover{
+    cursor: crosshair;
+
+}
+
+.screen {
+    display: flex;
+}
+
+.navbar {
+    border-right: 2px solid black;
+    height: 100%;
+    float: left;
+    width: 80px;
+    background-color:#ffffff;
+}
+
+.icons {
+    height: 100vh;
+    text-align: center;
+}
+
+
+.icons img {
+    width: 80%;
+    height: auto;
+    margin: 10px 0;
+}
+
+.canvas {
+    height: 70vh;
+    width: 70vw;
+    margin: auto auto;
+    border: 2px solid black;
+}
+=======
 .row {
     overflow: auto;
 }
@@ -17,7 +85,3 @@ html {
     width: 2px;
     float: left;
 }
-
-
-
-
