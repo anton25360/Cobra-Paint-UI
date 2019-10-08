@@ -16,6 +16,12 @@ body {
 background-color: #bfbfbf;
 }
 
+
+.formContainer{
+    margin: 50px;
+    text-align: center;
+}
+
 form{
     display: inline-block;
     padding: 10px;
@@ -25,9 +31,43 @@ form{
     text-align: left;
 }
 
-.formContainer{
-    margin: 50px;
-    text-align: center;
+/*.screen{*/
+/*    border: 2px solid black;*/
+/*    height: 100vh;*/
+/*    !*position: relative;*!*/
+/*    overflow: auto;*/
+/*}*/
+
+/*.navbar{*/
+/*    border-right: 2px solid black;*/
+/*    height: 100%;*/
+/*    float: left;*/
+/*    width: 80px;*/
+/*    background-color:#ffffff;*/
+/*}*/
+
+/*.navbar .icons{*/
+/*    text-align: center;*/
+/*}*/
+
+
+
+
+.canvas{
+    height: 200px;
+    width: 70%;
+    margin: 0 auto;
+    float: right;
+    /*margin-left: 80px;*/
+    border: 2px solid black;
+    /*position: absolute;*/
+    /*top: 50%;*/
+    /*left: 50%;*/
+    /*transform: translate(-50%, -50%);*/
+}
+
+.screen {
+    display: flex;
 }
 
 .navbar{
@@ -38,9 +78,11 @@ form{
     background-color:#ffffff;
 }
 
-.navbar .icons{
+.icons {
+    height: 100vh;
     text-align: center;
 }
+
 
 .icons img {
     width: 80%;
@@ -48,22 +90,9 @@ form{
     margin: 10px 0;
 }
 
-
 .canvas{
-    height: 200px;
-    width: 200px;
-    margin-left: 80px;
+    height: 70vh;
+    width: 70vw;
+    margin: auto auto;
     border: 2px solid black;
-
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
-
-.screen{
-    border: 2px solid black;
-    height: 100vh;
-    position: relative;
-
 }
