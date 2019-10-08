@@ -1,12 +1,6 @@
-document.querySelector('#formSize').addEventListener('submit', function (e) {
-    e.preventDefault()
-    var value = document.querySelector('input[name="size"]:checked').value;
-    console.log(value);
-    document.cookie = "size="+value;
-    window.location.href = 'canvas.html'
-})
 
-let canvasDimensions = calculateCanvasDimensions('large')
+
+let canvasDimensions = calculateCanvasDimensions(document.cookie)
 
 generateCanvas(canvasDimensions.width, canvasDimensions.height)
 
@@ -20,21 +14,21 @@ function calculateCanvasDimensions(selectedCanvasSize) {
 
     if (selectedCanvasSize === 'small') {
 
-        viewportWidth = Math.floor(viewportWidth * 0.2)
+        viewportWidth = Math.floor(viewportWidth * 0.05)
 
-        viewportHeight = Math.floor(viewportHeight * 0.2)
+        viewportHeight = Math.floor(viewportHeight * 0.05)
 
-    } else if (selectedCanvasSize === 'large') {
+    } else if (selectedCanvasSize === 'big') {
 
-        viewportWidth = Math.floor(viewportWidth * 0.4)
+        viewportWidth = Math.floor(viewportWidth * 0.075)
 
-        viewportHeight = Math.floor(viewportHeight * 0.4)
+        viewportHeight = Math.floor(viewportHeight * 0.075)
 
-    } else {
+    } else { //middle
 
-        viewportWidth = Math.floor(viewportWidth * 0.3)
+        viewportWidth = Math.floor(viewportWidth * 0.06)
 
-        viewportHeight = Math.floor(viewportHeight * 0.3)
+        viewportHeight = Math.floor(viewportHeight * 0.06)
 
     }
 
@@ -54,6 +48,9 @@ function generateCanvas(width, height) {
     document.querySelector('.canvas').innerHTML = canvas
 
 }
+
+let painting
+let clickdown
 
 document.querySelector('html').addEventListener('mousedown', function () {
     clickdown = true
