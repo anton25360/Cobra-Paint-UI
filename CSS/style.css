@@ -29,7 +29,7 @@ form {
     text-align: left;
 }
 
-.canvas:hover{
+.canvas:hover {
     cursor: crosshair;
 }
 
@@ -43,17 +43,6 @@ form {
     float: left;
     width: 80px;
     background-color:#ffffff;
-}
-
-.icons {
-    height: 100vh;
-    text-align: center;
-}
-
-.icons img {
-    width: 80%;
-    height: auto;
-    margin: 10px 0;
 }
 
 .canvas {
