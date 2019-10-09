@@ -8,10 +8,11 @@ const colorWheel = '#000000'
 setCanvasColor(canvasColor)
 
 
-document.querySelector('nav #eraser').addEventListener('click', function () {
+document.querySelector('nav #eraser').addEventListener('click', function() {
     paintColor = canvasColor
 })
-document.querySelector('nav #drawer').addEventListener('click', function () {
+
+document.querySelector('nav #drawer').addEventListener('click', function() {
     paintColor = colorWheel
 })
 
@@ -25,8 +26,9 @@ function generateCanvas(row, column) {
 
     document.querySelector('.canvas').innerHTML = canvas
 }
+
 function setCanvasColor(color) {
-    document.querySelectorAll('.row .pixel').forEach(function (pixel) {
+    document.querySelectorAll('.row .pixel').forEach(function(pixel) {
         pixel.style.backgroundColor = color
     })
     document.querySelector('.canvas').style.backgroundColor = color
@@ -75,6 +77,7 @@ document.querySelectorAll('.row .pixel').forEach(function(pixel) {
         })
     }, 0)
 })
+
 let drawer = document.querySelector('#drawer')
 let eraser = document.querySelector('#eraser')
 
