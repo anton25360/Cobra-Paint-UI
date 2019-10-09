@@ -87,27 +87,3 @@ button {
     visibility: visible;
     opacity: 1;
 }
-
-.tooltip2 {
-    position: relative;
-    display: inline-block;
-}
-
-.tooltiptext2 {
-    visibility: hidden;
-    position: absolute;
-    background-color: #555555;
-    color: #ffffff;
-    padding: 5px 2px;
-    border-radius: 3px;
-    font-size: 2rem;
-    opacity: 0;
-    transition: opacity 0.5s;
-    z-index: 1;
-}
-
-
-.tooltip2:hover .tooltiptext2 {
-    visibility: visible;
-    opacity: 1;
-}

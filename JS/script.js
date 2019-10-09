@@ -1,9 +1,9 @@
 
 generateCanvas(60, 100)
 
-let canvasColor = '#ffffff'
+const canvasColor = '#ffffff'
 let paintColor = '#000000'
-let colorWheel = '#000000'
+const colorWheel = '#000000'
 
 setCanvasColor(canvasColor)
 
@@ -11,7 +11,6 @@ setCanvasColor(canvasColor)
 document.querySelector('nav #eraser').addEventListener('click', function () {
     paintColor = canvasColor
 })
-
 document.querySelector('nav #drawer').addEventListener('click', function () {
     paintColor = colorWheel
 })
@@ -25,17 +24,13 @@ function generateCanvas(row, column) {
     let canvas =  canvasRow.repeat(row)
 
     document.querySelector('.canvas').innerHTML = canvas
-
 }
-
-
 function setCanvasColor(color) {
     document.querySelectorAll('.row .pixel').forEach(function (pixel) {
         pixel.style.backgroundColor = color
     })
     document.querySelector('.canvas').style.backgroundColor = color
 }
-
 /*
 * The two global events below are designed to ensure that users can
 * click elsewhere on the page, and when they drag onto the canvas, the
@@ -44,7 +39,6 @@ function setCanvasColor(color) {
 * not be painting when they return the mouse to the canvas unless they
 * click again.
 */
-
 let clickdown, painting
 
 document.querySelector('html').addEventListener('mousedown', function() {
@@ -81,7 +75,6 @@ document.querySelectorAll('.row .pixel').forEach(function(pixel) {
         })
     }, 0)
 })
-
 let drawer = document.querySelector('#drawer')
 let eraser = document.querySelector('#eraser')
 
@@ -94,11 +87,3 @@ eraser.addEventListener('click', function() {
     eraser.style.backgroundColor = '#a9a9a9'
     drawer.style.backgroundColor = '#ffffff'
 })
-
-
-
-
-
-
-
-
