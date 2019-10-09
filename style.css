@@ -7,27 +7,74 @@ html {
     font-size: 62.5%;
 }
 
-h1 {
-    font-size: 2.5rem;
+.index-background {
+    /*background-image: url("https://wallpaperplay.com/walls/full/7/0/7/316958.jpg");*/
+    /*background-image: url("https://wallpapercave.com/wp/HUOENQa.jpg");*/
+    /*background-image: url("https://wallpaperbro.com/img/16794.jpg");*/
+    background-image: url("https://www.wallpaperflare.com/static/548/589/181/artwork-paint-splatter-butterfly-colorful-wallpaper.jpg");
+    height: 1100px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
+h1 {
+    font-size: 8rem;
+    font-family: 'Bree Serif', serif;
+    text-align: center;
+    color: white;
+    margin: 0;
+    text-shadow: 3px 3px black;
+}
+
+h2 {
+    font-size: 5rem;
+    font-family: 'Bree Serif', serif;
+    color: white;
+    text-shadow: 3px 3px black;
+}
+
+.index-container {
+    margin: 0 auto;
+    padding-top: 60px;
+    width: 100%;
+    height: 1100px;
+    background-color: rgba(90, 86, 89, 0.71);
+    border: 1px solid black;
+}
+
+#formSize {
+    font-size: 4rem;
+    color: white;
+}
+
+
 body {
-background-color: #bfbfbf;
+    background-color: #bfbfbf;
 }
 
 
 .formContainer{
-    margin: 50px;
+    margin: 10px 50px;
     text-align: center;
 }
 
 form{
     display: inline-block;
-    padding: 10px;
+    padding: 5px;
     border-radius: 5px;
-    border: 2px solid black;
-    font-size: 3rem;
     text-align: left;
+}
+
+form p {
+    font-family: 'Bree Serif', serif;
+    text-shadow: 3px 3px black;
+}
+
+#submitCSize {
+    font-size: 3rem;
+    border-radius: 4px;
+    font-family: 'Bree Serif', serif;
 }
 
 .canvas:hover{
@@ -71,6 +118,7 @@ form{
     background-color: white;
     border: 1px solid black;
 }
+
 .pixel {
     background-color: white;
     height: 10px;
