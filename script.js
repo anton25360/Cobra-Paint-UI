@@ -32,40 +32,38 @@ function setCanvasColor(color) {
 }
 
 
-let clickdown
+let clickdown, painting
 
-let painting
-
-document.querySelector('html').addEventListener('mousedown', function () {
+document.querySelector('html').addEventListener('mousedown', function() {
     clickdown = true
 })
 
-document.querySelector('html').addEventListener('mouseup', function () {
+document.querySelector('html').addEventListener('mouseup', function() {
     clickdown = false
 })
 
-document.querySelector('.canvas').addEventListener('mouseleave', function () {
+document.querySelector('.canvas').addEventListener('mouseleave', function() {
     painting = false
 })
 
-document.querySelector('.canvas').addEventListener('mouseenter', function () {
+document.querySelector('.canvas').addEventListener('mouseenter', function() {
     if (clickdown === true) {
         painting = true
     }
 })
 
 document.querySelectorAll('.row .pixel').forEach(pixel => {
-    setTimeout(function () {
-        pixel.addEventListener('mousedown', function () {
+    setTimeout(function() {
+        pixel.addEventListener('mousedown', function() {
             painting = true
             this.style.backgroundColor = paintColor
         })
-        pixel.addEventListener('mousemove', function () {
+        pixel.addEventListener('mousemove', function() {
             if (painting === true && clickdown === true) {
                 this.style.backgroundColor = paintColor
             }
         })
-        pixel.addEventListener('mouseup', function () {
+        pixel.addEventListener('mouseup', function() {
             painting = false
         })
     }, 0)
