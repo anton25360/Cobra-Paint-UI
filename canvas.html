@@ -10,20 +10,32 @@
 </head>
 <body>
 <div class="screen">
-
-    <div class="navbar">
+    <nav class="navbar">
         <div class="icons">
+            <button id="drawer" class="colorWheelContainer tooltip">
+                <label for="colorWheel">
+                    <img src="https://img.icons8.com/officel/256/000000/rgb-circle-1.png">
+                </label>
+                <input type="color" id="colorWheel" value="#000000">
+                <div class="tooltiptext">
+                    Choose a colour
+                </div>
+            </button>
+            <button id="eraser" class="tooltip">
+                <label>
+                    <img src="https://img.icons8.com/dusk/256/000000/eraser.png">
+                </label>
+                <div class="tooltiptext">
+                    Erase
+                </div>
+            </button>
         </div>
-    </div>
-
-
+    </nav>
     <div class="canvasContainer">
         <div id="canvasContainerOverlay">
             <div class="canvas"></div>
         </div>
     </div>
-
-
 </div>
 </body>
 </html>

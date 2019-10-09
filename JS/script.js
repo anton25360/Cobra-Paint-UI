@@ -1,12 +1,41 @@
+let color = '#000000'
+const activeTool = '#a9a9a9'
+const inactiveTool = '#ffffff'
 
+generateCanvas(60, 100)
+
+clickColor()
+
+changeColor()
+
+erase()
+
+function clickColor() {
+    document.querySelector('#drawer img').addEventListener('click', function () {
+        document.querySelector('#eraser').style.backgroundColor = inactiveTool
+        document.querySelector('#drawer').style.backgroundColor = activeTool
+    })
+}
+
+function changeColor() {
+    document.querySelector('#colorWheel').addEventListener('input', function(e) {
+        color = e.target.value
+    })
+}
+
+function erase() {
+    document.querySelector('#eraser').addEventListener('click', function() {
+        document.querySelector('#eraser').style.backgroundColor = activeTool
+        document.querySelector('#drawer').style.backgroundColor = inactiveTool
+        color = '#ffffff'
+    })
+}
 
 let canvasDimensions = calculateCanvasDimensions(document.cookie)
 
 generateCanvas(canvasDimensions.width, canvasDimensions.height)
 
 function calculateCanvasDimensions(selectedCanvasSize) {
-
-    // https://stackoverflow.com/questions/1248081/get-the-browser-viewport-dimensions-with-javascript <- see resource
 
     let viewportWidth = Math.max(document.documentElement.clientWidth, window.innerWidth || 0)
 
@@ -24,7 +53,7 @@ function calculateCanvasDimensions(selectedCanvasSize) {
 
         viewportHeight = Math.floor(viewportHeight * 0.075)
 
-    } else { //middle
+    } else {
 
         viewportWidth = Math.floor(viewportWidth * 0.06)
 
@@ -35,7 +64,6 @@ function calculateCanvasDimensions(selectedCanvasSize) {
     return { width: viewportWidth, height: viewportHeight }
 
 }
-
 
 function generateCanvas(width, height) {
 
@@ -49,19 +77,11 @@ function generateCanvas(width, height) {
 
 }
 
-let painting, clickdown
+let clickdown, painting
 
-/*
-* The two global events below are designed to ensure that users can 
-* click elsewhere on the page, and when they drag onto the canvas, the
-* paint will be flowing. 
-* Conversely, if the user unclicks when not on the canvas, the user will
-* not be painting when they return the mouse to the canvas unless they 
-* click again. 
-*/
-
-document.querySelector('html').addEventListener('mousedown', function() {
+document.querySelector('html').addEventListener('mousedown', function(e) {
     clickdown = true
+    e.preventDefault()
 })
 
 document.querySelector('html').addEventListener('mouseup', function() {
@@ -74,23 +94,25 @@ document.querySelector('.canvas').addEventListener('mouseleave', function() {
 
 document.querySelector('.canvas').addEventListener('mouseenter', function() {
 
-    if (clickdown) {
+    if (clickdown === true) {
+
         painting = true
     }
 })
 
-
 document.querySelectorAll('.pixel').forEach(function(pixel) {
     pixel.addEventListener('mousedown', function() {
         painting = true
-        this.style.backgroundColor = "#000000"
+        pixel.style.backgroundColor = color
     })
-    pixel.addEventListener('mousemove', function () {
+
+    pixel.addEventListener('mousemove', function() {
         if (painting === true && clickdown === true) {
-            this.style.backgroundColor = "#000000"
+            pixel.style.backgroundColor = color
         }
     })
-    pixel.addEventListener('mouseup', function () {
+
+    pixel.addEventListener('mouseup', function() {
         painting = false
     })
 })
