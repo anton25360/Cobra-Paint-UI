@@ -11,7 +11,7 @@ erase()
 
 
 function clickColor() {
-    document.querySelector('#drawer').addEventListener('click', function () {
+    document.querySelector('#drawer img').addEventListener('click', function () {
         document.querySelector('#eraser').style.backgroundColor = '#ffffff'
         document.querySelector('#drawer').style.backgroundColor = '#a9a9a9'
     })
@@ -47,9 +47,11 @@ function generateCanvas(row, column) {
 }
 
 function draw(color) {
+    let clickdown, painting
 
-    document.querySelector('html').addEventListener('mousedown', function() {
+    document.querySelector('html').addEventListener('mousedown', function(e) {
         clickdown = true
+        e.preventDefault()
     })
 
     document.querySelector('html').addEventListener('mouseup', function() {
