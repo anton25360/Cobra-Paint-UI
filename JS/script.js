@@ -1,21 +1,39 @@
+let color = '#000000'
+const activeTool = '#a9a9a9'
+const inactiveTool = '#ffffff'
 
 generateCanvas(60, 100)
 
-const canvasColor = '#ffffff'
-let paintColor = '#000000'
-const colorWheel = '#000000'
+clickColor()
+
+changeColor()
+
+erase()
 
 
-setCanvasColor(canvasColor)
+function clickColor() {
+    document.querySelector('#drawer img').addEventListener('click', function () {
+        document.querySelector('#eraser').style.backgroundColor = inactiveTool
+        document.querySelector('#drawer').style.backgroundColor = activeTool
+    })
+}
 
 
-document.querySelector('nav #eraser').addEventListener('click', function() {
-    paintColor = canvasColor
-})
+function changeColor() {
+    document.querySelector('#colorWheel').addEventListener('input', function(e) {
+        color = e.target.value
+    })
+}
 
-document.querySelector('nav #drawer').addEventListener('click', function() {
-    paintColor = colorWheel
-})
+
+function erase() {
+    document.querySelector('#eraser').addEventListener('click', function() {
+        document.querySelector('#eraser').style.backgroundColor = activeTool
+        document.querySelector('#drawer').style.backgroundColor = inactiveTool
+        color = '#ffffff'
+    })
+}
+
 
 function generateCanvas(row, column) {
 
@@ -23,25 +41,13 @@ function generateCanvas(row, column) {
 
     canvasRow = '<div class="row">' + canvasRow + '</div>'
 
-    let canvas =  canvasRow.repeat(row)
+    let canvas = canvasRow.repeat(row)
 
     document.querySelector('.canvas').innerHTML = canvas
+
 }
 
-function setCanvasColor(color) {
-    document.querySelectorAll('.row .pixel').forEach(function(pixel) {
-        pixel.style.backgroundColor = color
-    })
-    document.querySelector('.canvas').style.backgroundColor = color
-}
-/*
-* The two global events below are designed to ensure that users can
-* click elsewhere on the page, and when they drag onto the canvas, the
-* paint will be flowing.
-* Conversely, if the user unclicks when not on the canvas, the user will
-* not be painting when they return the mouse to the canvas unless they
-* click again.
-*/
+
 let clickdown, painting
 
 document.querySelector('html').addEventListener('mousedown', function(e) {
@@ -58,39 +64,27 @@ document.querySelector('.canvas').addEventListener('mouseleave', function() {
 })
 
 document.querySelector('.canvas').addEventListener('mouseenter', function() {
-    if (clickdown) {
+    if (clickdown === true) {
         painting = true
     }
 })
 
-document.querySelectorAll('.row .pixel').forEach(function(pixel) {
-    setTimeout(function() {
-        pixel.addEventListener('mousedown', function() {
-            painting = true
-            this.style.backgroundColor = paintColor
-        })
-        pixel.addEventListener('mousemove', function() {
-            if (painting === true && clickdown === true) {
-                this.style.backgroundColor = paintColor
-            }
-        })
-        pixel.addEventListener('mouseup', function() {
-            painting = false
-        })
-    }, 0)
-})
 
-let drawer = document.querySelector('#drawer')
-let eraser = document.querySelector('#eraser')
+document.querySelectorAll('.pixel').forEach(function(pixel) {
+    pixel.addEventListener('mousedown', function() {
+        painting = true
+        pixel.style.backgroundColor = color
+    })
 
-drawer.addEventListener('click', function() {
-    drawer.style.backgroundColor = '#a9a9a9'
-    eraser.style.backgroundColor = '#ffffff'
-})
+    pixel.addEventListener('mousemove', function() {
+        if (painting === true && clickdown === true) {
+            pixel.style.backgroundColor = color
+        }
+    })
 
-eraser.addEventListener('click', function() {
-    eraser.style.backgroundColor = '#a9a9a9'
-    drawer.style.backgroundColor = '#ffffff'
+    pixel.addEventListener('mouseup', function() {
+        painting = false
+    })
 })
 
 
