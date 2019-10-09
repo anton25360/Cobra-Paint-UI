@@ -68,8 +68,8 @@ document.querySelectorAll('.row .pixel').forEach(pixel => {
         pixel.addEventListener('mouseup', function () {
             painting = false
         })
-    })
-}, 0)
+    }, 0)
+})
 
 
 
