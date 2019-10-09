@@ -77,9 +77,14 @@ document.querySelectorAll('.row .pixel').forEach(function(pixel) {
         pixel.addEventListener('mouseup', function() {
             painting = false
         })
+        pixel.addEventListener('click', function() {
+            if (textButtonClicked  === true) {
+            }
+        })
     }, 0)
 })
 
+let textButtonClicked
 let drawer = document.querySelector('#drawer')
 let eraser = document.querySelector('#eraser')
 let addText = document.querySelector('#addText')
@@ -100,5 +105,6 @@ addText.addEventListener('click', function() {
     addText.style.backgroundColor = '#a9a9a9'
     drawer.style.backgroundColor = '#ffffff'
     eraser.style.backgroundColor = '#ffffff'
+    textButtonClicked = true
 })
 
