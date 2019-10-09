@@ -1,0 +1,106 @@
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+h1 {
+    font-size: 2.5rem;
+}
+
+body {
+background-color: #bfbfbf;
+}
+form{
+    display: inline-block;
+    padding: 10px;
+    border-radius: 5px;
+    border: 2px solid black;
+    font-size: 3rem;
+    text-align: left;
+}
+
+.formContainer{
+    margin: 50px;
+    text-align: center;
+}
+
+.navbar{
+    border: 2px solid #000000;
+    height: 100vh;
+    float: left;
+    width: 10vw;
+    background-color:#ffffff;
+}
+
+.navbar .icons{
+    text-align: center;
+}
+
+.icons img {
+    width: 80%;
+    height: auto;
+    margin: 10px 0;
+}
+
+
+.canvas{
+    height: 100vh;
+    float: right;
+    width: 95vw;
+    border-top: 2px solid black;
+    border-right: 2px solid black;
+    border-bottom: 2px solid black;
+}
+button {
+    background-color: #ffffff;
+}
+.tooltip {
+    position: relative;
+    display: inline-block;
+}
+
+.tooltiptext {
+    visibility: hidden;
+    position: absolute;
+    background-color: #555555;
+    color: #ffffff;
+    padding: 5px 2px;
+    border-radius: 3px;
+    font-size: 2rem;
+    opacity: 0;
+    transition: opacity 0.5s;
+    z-index: 1;
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+}
+
+.tooltip2 {
+    position: relative;
+    display: inline-block;
+}
+
+.tooltiptext2 {
+    visibility: hidden;
+    position: absolute;
+    background-color: #555555;
+    color: #ffffff;
+    padding: 5px 2px;
+    border-radius: 3px;
+    font-size: 2rem;
+    opacity: 0;
+    transition: opacity 0.5s;
+    z-index: 1;
+}
+
+
+.tooltip2:hover .tooltiptext2 {
+    visibility: visible;
+    opacity: 1;
+}
