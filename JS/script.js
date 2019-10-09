@@ -3,6 +3,7 @@ generateCanvas(60, 100)
 
 let canvasColor = '#ffffff' // default canvas background color
 let paintColor = '#000000' // default paint color
+let colorWheel = '#000000' // colour wheel default colour
 
 setCanvasColor(canvasColor)
 
@@ -11,6 +12,9 @@ document.querySelector('nav #eraser').addEventListener('click', function () {
     paintColor = canvasColor
 })
 
+document.querySelector('nav #drawer').addEventListener('click', function () {
+    paintColor = colorWheel
+})
 
 function generateCanvas(row, column) {
 
