@@ -1,4 +1,6 @@
 let color = '#000000'
+const activeTool = '#a9a9a9'
+const inactiveTool = '#ffffff'
 
 generateCanvas(60, 100)
 
@@ -11,11 +13,10 @@ erase()
 
 function clickColor() {
     document.querySelector('#drawer img').addEventListener('click', function () {
-        document.querySelector('#eraser').style.backgroundColor = '#ffffff'
-        document.querySelector('#drawer').style.backgroundColor = '#a9a9a9'
+        document.querySelector('#eraser').style.backgroundColor = inactiveTool
+        document.querySelector('#drawer').style.backgroundColor = activeTool
     })
 }
-
 
 
 function changeColor() {
@@ -24,13 +25,15 @@ function changeColor() {
     })
 }
 
+
 function erase() {
     document.querySelector('#eraser').addEventListener('click', function() {
-        document.querySelector('#eraser').style.backgroundColor = '#a9a9a9'
-        document.querySelector('#drawer').style.backgroundColor = '#ffffff'
+        document.querySelector('#eraser').style.backgroundColor = activeTool
+        document.querySelector('#drawer').style.backgroundColor = inactiveTool
         color = '#ffffff'
     })
 }
+
 
 function generateCanvas(row, column) {
 
@@ -43,7 +46,6 @@ function generateCanvas(row, column) {
     document.querySelector('.canvas').innerHTML = canvas
 
 }
-
 
 
 let clickdown, painting
