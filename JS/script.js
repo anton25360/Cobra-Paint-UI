@@ -1,9 +1,9 @@
 
 generateCanvas(60, 100)
 
-let canvasColor = '#ffffff' // default canvas background color
-let paintColor = '#000000' // default paint color
-let colorWheel = '#000000' // colour wheel default colour
+let canvasColor = '#ffffff'
+let paintColor = '#000000'
+let colorWheel = '#000000'
 
 setCanvasColor(canvasColor)
 
