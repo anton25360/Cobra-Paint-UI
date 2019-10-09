@@ -61,8 +61,12 @@ body {
     align-items: center;
 }
 
-button {
+#eraser {
     background-color: #ffffff;
+}
+
+#drawer {
+    background-color: #a9a9a9;
 }
 
 .tooltip {
