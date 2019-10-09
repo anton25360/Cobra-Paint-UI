@@ -43,8 +43,9 @@ function setCanvasColor(color) {
 */
 let clickdown, painting
 
-document.querySelector('html').addEventListener('mousedown', function() {
+document.querySelector('html').addEventListener('mousedown', function(e) {
     clickdown = true
+    e.preventDefault()
 })
 
 document.querySelector('html').addEventListener('mouseup', function() {
