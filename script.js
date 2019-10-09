@@ -47,12 +47,12 @@ document.querySelector('.canvas').addEventListener('mouseleave', function() {
 })
 
 document.querySelector('.canvas').addEventListener('mouseenter', function() {
-    if (clickdown === true) {
+    if (clickdown) {
         painting = true
     }
 })
 
-document.querySelectorAll('.row .pixel').forEach(pixel => {
+document.querySelectorAll('.row .pixel').forEach(function(pixel) {
     setTimeout(function() {
         pixel.addEventListener('mousedown', function() {
             painting = true
