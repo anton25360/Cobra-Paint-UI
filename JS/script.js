@@ -2,8 +2,6 @@ let color = '#000000'
 const activeTool = '#a9a9a9'
 const inactiveTool = '#ffffff'
 
-generateCanvas(60, 100)
-
 clickColor()
 
 changeColor()
