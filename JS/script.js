@@ -42,7 +42,9 @@ function setCanvasColor(color) {
 * not be painting when they return the mouse to the canvas unless they
 * click again.
 */
-let clickdown, painting, mode
+let clickdown
+let painting = true
+let mode = "paint"
 
 document.querySelector('html').addEventListener('mousedown', function(e) {
     clickdown = true
