@@ -42,7 +42,7 @@ function setCanvasColor(color) {
 * not be painting when they return the mouse to the canvas unless they
 * click again.
 */
-let clickdown, painting
+let clickdown, painting, mode
 
 document.querySelector('html').addEventListener('mousedown', function(e) {
     clickdown = true
@@ -66,11 +66,13 @@ document.querySelector('.canvas').addEventListener('mouseenter', function() {
 document.querySelectorAll('.row .pixel').forEach(function(pixel) {
     setTimeout(function() {
         pixel.addEventListener('mousedown', function() {
-            painting = true
-            this.style.backgroundColor = paintColor
+            if (mode === "paint") {
+                painting = true
+                this.style.backgroundColor = paintColor
+            }
         })
         pixel.addEventListener('mousemove', function() {
-            if (painting === true && clickdown === true) {
+            if (mode === "paint" && clickdown === true && painting === true) {
                 this.style.backgroundColor = paintColor
             }
         })
@@ -78,13 +80,13 @@ document.querySelectorAll('.row .pixel').forEach(function(pixel) {
             painting = false
         })
         pixel.addEventListener('click', function() {
-            if (textButtonClicked  === true) {
+            if (mode === "text") {
+
             }
         })
     }, 0)
 })
 
-let textButtonClicked
 let drawer = document.querySelector('#drawer')
 let eraser = document.querySelector('#eraser')
 let addText = document.querySelector('#addText')
@@ -93,18 +95,20 @@ drawer.addEventListener('click', function() {
     drawer.style.backgroundColor = '#a9a9a9'
     eraser.style.backgroundColor = '#ffffff'
     addText.style.backgroundColor = '#ffffff'
+    mode = "paint"
 })
 
 eraser.addEventListener('click', function() {
     eraser.style.backgroundColor = '#a9a9a9'
     drawer.style.backgroundColor = '#ffffff'
     addText.style.backgroundColor = '#ffffff'
+    mode = "paint"
 })
 
 addText.addEventListener('click', function() {
     addText.style.backgroundColor = '#a9a9a9'
     drawer.style.backgroundColor = '#ffffff'
     eraser.style.backgroundColor = '#ffffff'
-    textButtonClicked = true
+    mode = "text"
 })
 
