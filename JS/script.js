@@ -9,6 +9,8 @@ changeColor()
 
 erase()
 
+printCanvas()
+
 function clickColor() {
     document.querySelector('#drawer img').addEventListener('click', function () {
         document.querySelector('#eraser').style.backgroundColor = inactiveTool
@@ -112,4 +114,15 @@ document.querySelectorAll('.pixel').forEach(function(pixel) {
     })
 })
 
+function printCanvas() {
+    document.querySelector('#print').addEventListener('click', function() {
+        document.querySelector('.navbar').style.display = 'none'
+        document.querySelector('.canvasContainer').style.backgroundColor = '#ffffff'
+        document.querySelector('.canvasContainer').style.height = '100vh'
+        window.print()
+        document.querySelector('.navbar').style.display = 'block'
+        document.querySelector('.canvasContainer').style.backgroundColor = '#bfbfbf'
+        document.querySelector('.canvasContainer').style.height = '100vh'
 
+    })
+}
