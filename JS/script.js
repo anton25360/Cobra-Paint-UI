@@ -1,13 +1,10 @@
-
 generateCanvas(60, 100)
 
 const canvasColor = '#ffffff'
 let paintColor = '#000000'
 const colorWheel = '#000000'
 
-
 setCanvasColor(canvasColor)
-
 
 document.querySelector('nav #eraser').addEventListener('click', function() {
     paintColor = canvasColor
@@ -42,7 +39,9 @@ function setCanvasColor(color) {
 * not be painting when they return the mouse to the canvas unless they
 * click again.
 */
-let clickdown, painting
+let clickdown
+let painting = true
+let mode = "paint"
 
 document.querySelector('html').addEventListener('mousedown', function(e) {
     clickdown = true
@@ -55,6 +54,7 @@ document.querySelector('html').addEventListener('mouseup', function() {
 
 document.querySelector('.canvas').addEventListener('mouseleave', function() {
     painting = false
+
 })
 
 document.querySelector('.canvas').addEventListener('mouseenter', function() {
@@ -66,16 +66,25 @@ document.querySelector('.canvas').addEventListener('mouseenter', function() {
 document.querySelectorAll('.row .pixel').forEach(function(pixel) {
     setTimeout(function() {
         pixel.addEventListener('mousedown', function() {
-            painting = true
-            this.style.backgroundColor = paintColor
+            if (mode === "paint") {
+                painting = true
+                this.style.backgroundColor = paintColor
+            }
         })
         pixel.addEventListener('mousemove', function() {
-            if (painting === true && clickdown === true) {
+            if (mode === "paint" && clickdown === true && painting === true) {
                 this.style.backgroundColor = paintColor
             }
         })
         pixel.addEventListener('mouseup', function() {
             painting = false
+        })
+        pixel.addEventListener('click', function() {
+            if (mode === "text") {
+                this.innerHTML = '<p class="textInput"></p>'
+                this.querySelector(".textInput").contentEditable = "true"
+                this.querySelector(".textInput").focus()
+            }
         })
     }, 0)
 })
@@ -88,17 +97,22 @@ drawer.addEventListener('click', function() {
     drawer.style.backgroundColor = '#a9a9a9'
     eraser.style.backgroundColor = '#ffffff'
     addText.style.backgroundColor = '#ffffff'
+    mode = "paint"
+    document.querySelector(".canvas").style.cursor = "crosshair"
 })
 
 eraser.addEventListener('click', function() {
     eraser.style.backgroundColor = '#a9a9a9'
     drawer.style.backgroundColor = '#ffffff'
     addText.style.backgroundColor = '#ffffff'
+    mode = "paint"
+    document.querySelector(".canvas").style.cursor = "crosshair"
 })
 
 addText.addEventListener('click', function() {
     addText.style.backgroundColor = '#a9a9a9'
     drawer.style.backgroundColor = '#ffffff'
     eraser.style.backgroundColor = '#ffffff'
+    mode = "text"
+    document.querySelector(".canvas").style.cursor = "text"
 })
-
