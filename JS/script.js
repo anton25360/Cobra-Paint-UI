@@ -1,13 +1,10 @@
-
 generateCanvas(60, 100)
 
 const canvasColor = '#ffffff'
 let paintColor = '#000000'
 const colorWheel = '#000000'
 
-
 setCanvasColor(canvasColor)
-
 
 document.querySelector('nav #eraser').addEventListener('click', function() {
     paintColor = canvasColor
