@@ -55,6 +55,7 @@ document.querySelector('html').addEventListener('mouseup', function() {
 
 document.querySelector('.canvas').addEventListener('mouseleave', function() {
     painting = false
+
 })
 
 document.querySelector('.canvas').addEventListener('mouseenter', function() {

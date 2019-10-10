@@ -54,6 +54,8 @@ body {
     cursor: crosshair;
     background-color: #ffffff;
     border: 1px solid #000000;
+    position: relative;
+    overflow: hidden;
 }
 
 .canvasContainer {
@@ -98,4 +100,5 @@ body {
     position: absolute;
     font-size: 2rem;
     font-family: Verdana;
+    background-color: #ffffff;
 }
