@@ -13,6 +13,7 @@ printCanvas()
 
 function clickColor() {
     document.querySelector('#drawer img').addEventListener('click', function () {
+        color = '#000000'
         document.querySelector('#eraser').style.backgroundColor = inactiveTool
         document.querySelector('#drawer').style.backgroundColor = activeTool
     })
