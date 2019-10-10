@@ -1,15 +1,13 @@
+
 let color = '#000000'
 const activeTool = '#a9a9a9'
 const inactiveTool = '#ffffff'
-
-generateCanvas(60, 100)
 
 clickColor()
 
 changeColor()
 
 erase()
-
 
 function clickColor() {
     document.querySelector('#drawer img').addEventListener('click', function () {
@@ -18,13 +16,11 @@ function clickColor() {
     })
 }
 
-
 function changeColor() {
     document.querySelector('#colorWheel').addEventListener('input', function(e) {
         color = e.target.value
     })
 }
-
 
 function erase() {
     document.querySelector('#eraser').addEventListener('click', function() {
@@ -34,19 +30,49 @@ function erase() {
     })
 }
 
+let cookieSizeValue = document.cookie.split('=')[1]
+cookieSizeValue = cookieSizeValue.split(';')[0]
 
-function generateCanvas(row, column) {
+let canvasDimensions = calculateCanvasDimensions(cookieSizeValue)
 
-    let canvasRow = '<div class="pixel"></div>'.repeat(column)
+generateCanvas(canvasDimensions.width, canvasDimensions.height)
 
-    canvasRow = '<div class="row">' + canvasRow + '</div>'
+function calculateCanvasDimensions(selectedCanvasSize) {
 
-    let canvas = canvasRow.repeat(row)
+    // the window.innerWidth/window.innerHeight properties contain the viewport width (including scroll bars), this
+    // is what we need for rescaling, however when using initial-scale (in the meta tag) the values of
+    // window.innerWidth/window.innerHeight can wrongly scale down to the 'visual viewport' (i.e. the part of the page
+    // the user can see, which may change when scrolling)
+    // if window.innerWidth/window.innerHeight is undefined then use 0
+    // the document.documentElement.clientWidth/document.documentElement.clientHeight properties contain the viewport
+    // width (excluding scroll bars), therefore we want to take the maximum to ensure we either take the
+    // viewport width (including scroll bars) or, if not available, the viewport width (excluding scroll bars)
 
-    document.querySelector('.canvas').innerHTML = canvas
+    let viewportWidth = Math.max(document.documentElement.clientWidth, window.innerWidth || 0)
+
+    let viewportHeight = Math.max(document.documentElement.clientHeight, window.innerHeight || 0)
+
+    if (selectedCanvasSize === 'small') {
+        viewportWidth = Math.floor(viewportWidth * 0.05)
+        viewportHeight = Math.floor(viewportHeight * 0.05)
+    } else if (selectedCanvasSize === 'big') {
+        viewportWidth = Math.floor(viewportWidth * 0.075)
+        viewportHeight = Math.floor(viewportHeight * 0.075)
+    } else {
+        viewportWidth = Math.floor(viewportWidth * 0.06)
+        viewportHeight = Math.floor(viewportHeight * 0.06)
+    }
+
+    return { width: viewportWidth, height: viewportHeight }
 
 }
 
+function generateCanvas(width, height) {
+    let canvasWidth = '<div class="pixel"></div>'.repeat(width)
+    canvasWidth = '<div class="row">' + canvasWidth + '</div>'
+    let canvas = canvasWidth.repeat(height)
+    document.querySelector('.canvas').innerHTML = canvas
+}
 
 let clickdown, painting
 
@@ -68,7 +94,6 @@ document.querySelector('.canvas').addEventListener('mouseenter', function() {
         painting = true
     }
 })
-
 
 document.querySelectorAll('.pixel').forEach(function(pixel) {
     pixel.addEventListener('mousedown', function() {
