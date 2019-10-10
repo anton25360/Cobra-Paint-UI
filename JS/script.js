@@ -106,6 +106,9 @@ eraser.addEventListener('click', function() {
     drawer.style.backgroundColor = '#ffffff'
     addText.style.backgroundColor = '#ffffff'
     mode = "paint"
+    if (mode === "paint") {
+        document.querySelector(".canvas").style.cursor = "crosshair"
+    }
 })
 
 addText.addEventListener('click', function() {
@@ -113,5 +116,7 @@ addText.addEventListener('click', function() {
     drawer.style.backgroundColor = '#ffffff'
     eraser.style.backgroundColor = '#ffffff'
     mode = "text"
+    if (mode === "text") {
+        document.querySelector(".canvas").style.cursor = "text"
+    }
 })
-
