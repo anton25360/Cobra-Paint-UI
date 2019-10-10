@@ -46,6 +46,7 @@ body {
     width: 10px;
     float: left;
     border-radius: 50%;
+    overflow: visible;
 }
 
 .canvas {
@@ -91,4 +92,11 @@ body {
 .tooltip:hover .tooltiptext {
     visibility: visible;
     opacity: 1;
+}
+
+.textInput {
+    position: absolute;
+    border: 10px solid black;
+    width: 30px;
+    height: 30px;
 }
