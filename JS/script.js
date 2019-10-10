@@ -82,8 +82,8 @@ document.querySelectorAll('.row .pixel').forEach(function(pixel) {
         pixel.addEventListener('click', function() {
             if (mode === "text") {
                 this.innerHTML = '<p class="textInput"></p>'
-                document.querySelector(".textInput").contentEditable = "true"
-                document.querySelector(".textInput").focus();
+                this.querySelector(".textInput").contentEditable = "true"
+                this.querySelector(".textInput").focus()
             }
         })
     }, 0)
