@@ -30,7 +30,10 @@ function erase() {
     })
 }
 
-let canvasDimensions = calculateCanvasDimensions(document.cookie)
+let cookieSizeValue = document.cookie.split('=')[1]
+cookieSizeValue = cookieSizeValue.split(';')[0]
+
+let canvasDimensions = calculateCanvasDimensions(cookieSizeValue)
 
 generateCanvas(canvasDimensions.width, canvasDimensions.height)
 
