@@ -1,7 +1,7 @@
-
 let color = '#000000'
 const activeTool = '#a9a9a9'
 const inactiveTool = '#ffffff'
+
 
 clickColor()
 
@@ -39,10 +39,15 @@ function clickChangeCanvasColor() {
         document.querySelector('#eraser').style.backgroundColor = inactiveTool
         document.querySelector('#drawer').style.backgroundColor = inactiveTool
         document.querySelector('#canvasColor').style.backgroundColor = activeTool
-        document.querySelector('#canvasColor label img').src="https://img.icons8.com/ios-filled/256/000000/easel.png"
+        if (document.querySelector('#canvasColor').style.backgroundColor = activeTool) {
+            document.querySelector('#canvasColor label img').src="https://img.icons8.com/ios/256/000000/easel.png"
+        } else if (document.querySelector('#canvasColor').style.backgroundColor = inactiveTool) {
+            document.querySelector('#canvasColor label img').src="https://img.icons8.com/ios-filled/256/000000/easel.png"
+        }
         changeColor()
     })
 }
+
 
 let cookieSizeValue = document.cookie.split('=')[1]
 cookieSizeValue = cookieSizeValue.split(';')[0]
