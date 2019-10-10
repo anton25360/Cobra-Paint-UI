@@ -100,12 +100,12 @@ document.querySelector('.canvas').addEventListener('mouseenter', function() {
 document.querySelectorAll('.pixel').forEach(function(pixel) {
     pixel.addEventListener('mousedown', function() {
         painting = true
-        pixel.style.backgroundColor = color
+        pixel.style.borderColor = color
     })
 
     pixel.addEventListener('mousemove', function() {
         if (painting === true && clickdown === true) {
-            pixel.style.backgroundColor = color
+            pixel.style.borderColor = color
         }
     })
 
@@ -119,10 +119,11 @@ function printCanvas() {
         document.querySelector('.navbar').style.display = 'none'
         document.querySelector('.canvasContainer').style.backgroundColor = '#ffffff'
         document.querySelector('.canvasContainer').style.height = '100vh'
+        document.querySelector('.canvas').style.borderColor = '#ffffff'
         window.print()
         document.querySelector('.navbar').style.display = 'block'
         document.querySelector('.canvasContainer').style.backgroundColor = '#bfbfbf'
-        document.querySelector('.canvasContainer').style.height = '100vh'
+        document.querySelector('.canvas').style.borderColor = '#000000'
 
     })
 }
