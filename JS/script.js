@@ -1,44 +1,79 @@
-generateCanvas(60, 100)
+let color = '#000000'
+const activeTool = '#a9a9a9'
+const inactiveTool = '#ffffff'
 
-const canvasColor = '#ffffff'
-let paintColor = '#000000'
-const colorWheel = '#000000'
+clickColor()
 
-setCanvasColor(canvasColor)
+changeColor()
 
-document.querySelector('nav #eraser').addEventListener('click', function() {
-    paintColor = canvasColor
-})
+erase()
 
-document.querySelector('nav #drawer').addEventListener('click', function() {
-    paintColor = colorWheel
-})
+function clickColor() {
+    document.querySelector('#drawer img').addEventListener('click', function () {
+        document.querySelector('#eraser').style.backgroundColor = inactiveTool
+        document.querySelector('#drawer').style.backgroundColor = activeTool
+    })
+}
 
-function generateCanvas(row, column) {
+function changeColor() {
+    document.querySelector('#colorWheel').addEventListener('input', function(e) {
+        color = e.target.value
+        return color
+    })
+}
 
-    let canvasRow = '<div class="pixel"></div>'.repeat(column)
+function erase() {
+    document.querySelector('#eraser').addEventListener('click', function() {
+        document.querySelector('#eraser').style.backgroundColor = activeTool
+        document.querySelector('#drawer').style.backgroundColor = inactiveTool
+        color = '#ffffff'
+    })
+}
 
-    canvasRow = '<div class="row">' + canvasRow + '</div>'
+let cookieSizeValue = document.cookie.split('=')[1]
+cookieSizeValue = cookieSizeValue.split(';')[0]
 
-    let canvas =  canvasRow.repeat(row)
+let canvasDimensions = calculateCanvasDimensions(cookieSizeValue)
 
+generateCanvas(canvasDimensions.width, canvasDimensions.height)
+
+function calculateCanvasDimensions(selectedCanvasSize) {
+
+    // the window.innerWidth/window.innerHeight properties contain the viewport width (including scroll bars), this
+    // is what we need for rescaling, however when using initial-scale (in the meta tag) the values of
+    // window.innerWidth/window.innerHeight can wrongly scale down to the 'visual viewport' (i.e. the part of the page
+    // the user can see, which may change when scrolling)
+    // if window.innerWidth/window.innerHeight is undefined then use 0
+    // the document.documentElement.clientWidth/document.documentElement.clientHeight properties contain the viewport
+    // width (excluding scroll bars), therefore we want to take the maximum to ensure we either take the
+    // viewport width (including scroll bars) or, if not available, the viewport width (excluding scroll bars)
+
+    let viewportWidth = Math.max(document.documentElement.clientWidth, window.innerWidth || 0)
+
+    let viewportHeight = Math.max(document.documentElement.clientHeight, window.innerHeight || 0)
+
+    if (selectedCanvasSize === 'small') {
+        viewportWidth = Math.floor(viewportWidth * 0.05)
+        viewportHeight = Math.floor(viewportHeight * 0.05)
+    } else if (selectedCanvasSize === 'big') {
+        viewportWidth = Math.floor(viewportWidth * 0.075)
+        viewportHeight = Math.floor(viewportHeight * 0.075)
+    } else {
+        viewportWidth = Math.floor(viewportWidth * 0.06)
+        viewportHeight = Math.floor(viewportHeight * 0.06)
+    }
+
+    return { width: viewportWidth, height: viewportHeight }
+
+}
+
+function generateCanvas(width, height) {
+    let canvasWidth = '<div class="pixel"></div>'.repeat(width)
+    canvasWidth = '<div class="row">' + canvasWidth + '</div>'
+    let canvas = canvasWidth.repeat(height)
     document.querySelector('.canvas').innerHTML = canvas
 }
 
-function setCanvasColor(color) {
-    document.querySelectorAll('.row .pixel').forEach(function(pixel) {
-        pixel.style.backgroundColor = color
-    })
-    document.querySelector('.canvas').style.backgroundColor = color
-}
-/*
-* The two global events below are designed to ensure that users can
-* click elsewhere on the page, and when they drag onto the canvas, the
-* paint will be flowing.
-* Conversely, if the user unclicks when not on the canvas, the user will
-* not be painting when they return the mouse to the canvas unless they
-* click again.
-*/
 let clickdown
 let painting = true
 let mode = "paint"
@@ -58,7 +93,7 @@ document.querySelector('.canvas').addEventListener('mouseleave', function() {
 })
 
 document.querySelector('.canvas').addEventListener('mouseenter', function() {
-    if (clickdown) {
+    if (clickdown === true) {
         painting = true
     }
 })
@@ -68,12 +103,12 @@ document.querySelectorAll('.row .pixel').forEach(function(pixel) {
         pixel.addEventListener('mousedown', function() {
             if (mode === "paint") {
                 painting = true
-                this.style.backgroundColor = paintColor
+                this.style.backgroundColor = color
             }
         })
         pixel.addEventListener('mousemove', function() {
             if (mode === "paint" && clickdown === true && painting === true) {
-                this.style.backgroundColor = paintColor
+                this.style.backgroundColor = color
             }
         })
         pixel.addEventListener('mouseup', function() {
@@ -94,6 +129,7 @@ let eraser = document.querySelector('#eraser')
 let addText = document.querySelector('#addText')
 
 drawer.addEventListener('click', function() {
+    color = '#000000'
     drawer.style.backgroundColor = '#a9a9a9'
     eraser.style.backgroundColor = '#ffffff'
     addText.style.backgroundColor = '#ffffff'

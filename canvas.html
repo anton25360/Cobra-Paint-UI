@@ -6,18 +6,25 @@
     <link rel="stylesheet" href="CSS/style.css" type="text/css">
     <meta charset="UTF-8">
     <script defer src="JS/script.js"></script>
-    <title>JS-Paint</title>
+    <title>Cobra-Paint</title>
 </head>
 <body>
 <div class="screen">
     <nav class="navbar">
         <div class="icons">
-            <button id="drawer" class="tooltip"><img src="https://img.icons8.com/officel/256/000000/rgb-circle-1.png">
+            <button id="drawer" class="colorWheelContainer tooltip">
+                <label for="colorWheel">
+                    <img src="https://img.icons8.com/officel/256/000000/rgb-circle-1.png">
+                </label>
+                <input type="color" id="colorWheel" value="#000000">
                 <div class="tooltiptext">
-                    Draw
+                    Choose a colour
                 </div>
             </button>
-            <button id="eraser" class="tooltip"><img src="https://img.icons8.com/dusk/256/000000/eraser.png">
+            <button id="eraser" class="tooltip">
+                <label>
+                    <img src="https://img.icons8.com/dusk/256/000000/eraser.png">
+                </label>
                 <div class="tooltiptext">
                     Erase
                 </div>
@@ -25,6 +32,14 @@
             <button id="addText" class="tooltip"><img src="https://img.icons8.com/officel/256/000000/text-box.png">
                 <div class="tooltiptext">
                     Add Text
+                    </div>
+            </button>
+            <button class="tooltip">
+                <label>
+                    <a href="index.html"><img src="https://img.icons8.com/dusk/256/000000/refresh.png"></a>
+                </label>
+                <div class="tooltiptext">
+                    Start over
                 </div>
             </button>
         </div>
