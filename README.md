@@ -1,1 +1,1 @@
-2019-Aug-JS-paint
+Cobra Paint UI is a refeshed version of the original Cobra Paint.
