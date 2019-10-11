@@ -1,7 +1,8 @@
 
 let color = '#000000'
-const activeTool = '#a9a9a9'
-const inactiveTool = '#ffffff'
+const activeTool = 'white'
+const inactiveTool = 'white'
+
 
 clickColor()
 
